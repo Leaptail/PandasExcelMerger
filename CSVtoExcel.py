@@ -6,10 +6,9 @@ output_path = "D:\Programming\github py\Pandas Programming\PandasExcelMerger\Sto
 
 files = os.listdir(path)
 files_csv = [f for f in files if f[-3:] == 'csv']
-x = ['1.xlsx','2.xlsx']
-y = 0
 
 for f in files_csv:
+    filextention = '.xlsx'
+    DataName = os.path.splitext(f)[0] + filextention
     Stock_data = pd.read_csv(os.path.join(path,f))
-    Stock_data.to_excel(os.path.join(output_path,x[y]), index=None, header=True)
-    y = y + 1
+    Stock_data.to_excel(os.path.join(output_path,DataName), index=None, header=True)
